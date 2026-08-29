@@ -1628,7 +1628,7 @@ Never stop shining
 </div>
 
 <div class="photoCard">
-    <img src="pic7.png">
+    <img src="pic4.png">
 </div>
 
 <div class="photoCard">
@@ -1732,7 +1732,7 @@ Never stop shining
 </div>
 
 <div class="photoCard">
-    <img src="pic7.png">
+    <img src="pic4.png">
 </div>
 
 <div class="photoCard">
@@ -1811,6 +1811,33 @@ window.scrollTo({
     behavior:"smooth"
 });
 
+showAngelGuide();
+
+}
+
+// Angel Guide: wishes her first, then settles into a corner to guide the journey
+function showAngelGuide(){
+
+if(angelShown) return;
+
+angelShown = true;
+
+const angel = document.getElementById("angelGuide");
+const bubble = document.getElementById("angelBubble");
+
+angel.style.display = "block";
+
+bubble.innerHTML =
+"Happy Birthday, Belsha Akka! 🎂❤️<br>Today is your special day!<br>Come with me... I'll guide you through every surprise. ✨";
+
+setTimeout(function(){
+
+angel.classList.add("miniAngel");
+
+bubble.innerHTML = "⬇️ Scroll down...<br>Your first surprise is waiting! ❤️";
+
+},4000);
+
 }
 
 // Countdown
@@ -1831,23 +1858,6 @@ document.getElementById("countdown").innerHTML =
 "<span class='countNum'>00</span> <span class='countText'>Hours</span> " +
 "<span class='countNum'>00</span> <span class='countText'>Minutes</span> " +
 "<span class='countNum'>00</span> <span class='countText'>Seconds</span>";
-
-if(!angelShown){
-
-angelShown = true;
-
-document.getElementById("angelGuide").style.display = "block";
-
-setTimeout(function(){
-
-document.getElementById("angelGuide").classList.add("miniAngel");
-
-document.getElementById("angelBubble").innerHTML =
-"⬇️ Scroll down...<br>Your first surprise is waiting! ❤️";
-
-},3000);
-
-}
 
 return;
 
@@ -2438,9 +2448,19 @@ window.addEventListener("scroll", () => {
     const letter = document.getElementById("letter").getBoundingClientRect();
     const cake = document.getElementById("cake").getBoundingClientRect();
     const gift = document.getElementById("gift").getBoundingClientRect();
+    const memory = document.getElementById("memory").getBoundingClientRect();
+    const ending = document.getElementById("ending").getBoundingClientRect();
 
-    if (gift.top < window.innerHeight / 2) {
-        angelBubble.innerHTML = "🎁 Open your special gift!";
+    // Checked from the bottom-most section up, so the furthest point
+    // she's scrolled to always wins.
+    if (ending.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "💗 One more surprise... tap the heart below!";
+    }
+    else if (memory.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "📸 A few more memories to smile at.";
+    }
+    else if (gift.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "🎁 Tap the gift for one last surprise!";
     }
     else if (cake.top < window.innerHeight / 2) {
         angelBubble.innerHTML = "🕯️ Blow out the candle and make your birthday wish!";
