@@ -2350,40 +2350,8 @@ for(let i=0;i<5;i++){
 }
 
 }
-let cakePlayed = false;
-
-window.addEventListener("scroll",()=>{
-
-let cake = document.querySelector(".cakeSection");
-
-if(cake){
-
-let position = cake.getBoundingClientRect();
-
-if(position.top < window.innerHeight && !cakePlayed){
-
-console.log("Cake reached");
-
-cakePlayed = true;
-
-let firstSong = document.getElementById("birthdayMusic");
-let cakeSong = document.getElementById("cakeMusic");
-
-// Stop first song
-firstSong.pause();
-firstSong.currentTime = 0;
-
-// Start second song
-cakeSong.currentTime = 0;
-cakeSong.play();
-
-currentAudio = cakeSong;
-
-}
-
-}
-
-});
+// Note: the second song no longer auto-starts on scroll.
+// It now starts only when the candle is blown out, via blowCandle().
 function openGift(){
 
     let message = document.getElementById("giftMessage");
@@ -2517,3 +2485,4 @@ window.addEventListener("scroll", () => {
 </body>
 
 </html>
+
