@@ -1006,6 +1006,7 @@ color:#ff69b4;
     z-index:99999;
     text-align:center;
     width:320px;
+    transition:top .8s ease, left .8s ease, right .8s ease, bottom .8s ease, width .8s ease;
     }
 
 #angelEmoji{
@@ -1033,10 +1034,10 @@ filter:drop-shadow(0 0 20px gold);
 }
 
 .miniAngel{
-top:auto!important;
+top:20px!important;
 left:auto!important;
-bottom:90px!important;
-right:20px!important;
+bottom:auto!important;
+right:16px!important;
 transform:none!important;
 }
 
@@ -1045,9 +1046,26 @@ font-size:45px;
 }
 
 .miniAngel #angelBubble{
-    width:220px;
-    font-size:15px;
+    width:200px;
+    font-size:14px;
     line-height:1.5;
+    margin-top:10px;
+    margin-left:auto;
+}
+
+@media (max-width:480px){
+.miniAngel{
+    right:10px!important;
+    top:14px!important;
+}
+.miniAngel #angelEmoji{
+    font-size:38px;
+}
+.miniAngel #angelBubble{
+    width:160px;
+    font-size:12.5px;
+    padding:12px;
+}
 }
     .photoCard{
     position: relative;
